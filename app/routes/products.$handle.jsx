@@ -29,14 +29,14 @@ export async function loader({params, request, context}) {
     cache: storefront.CacheNone(),
   });
 
+  // Fetch construction details from third-party CMS
+  const constructionDetails = await fetchContent(handle);
+
   // Throw a 404 if the product isn't found
   if (!product?.id) throw new Response(null, {status: 404});
 
   // Fetch product reviews from third-party source
   const reviews = await fetchReviews(handle);
-
-  // Fetch construction details from third-party CMS
-  const constructionDetails = await fetchContent(handle);
 
   // Fetch product recommendations from Shopify
   const {productRecommendations} = await storefront.query(

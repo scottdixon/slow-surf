@@ -1,18 +1,21 @@
 import {RadioGroup} from '@headlessui/react';
-import {useSearchParams} from '@remix-run/react';
+import {useNavigate} from '@remix-run/react';
 import {VariantSelector} from '@shopify/hydrogen';
-import {useState} from 'react';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
 }
 
 export default function ProductForm({product, selectedVariant, variants}) {
-  const [searchParams, setSearchParams] = useSearchParams();
+  const navigate = useNavigate();
 
   return (
     <form className="mt-10">
-      <VariantSelector options={product.options} variants={variants}>
+      <VariantSelector
+        options={product.options}
+        variants={variants}
+        handle={product.handle}
+      >
         {({option}) => (
           <>
             <h3 className="text-sm font-medium text-gray-900 mt-10">
@@ -21,10 +24,11 @@ export default function ProductForm({product, selectedVariant, variants}) {
             <RadioGroup
               value={selectedVariant.title}
               className="mt-4"
-              onChange={(value) => {
-                const params = new URLSearchParams(window.location.search);
-                params.set(option.name, value);
-                setSearchParams(params, {
+              onChange={(selectedOption) => {
+                const optionValue = option.values.find(
+                  (v) => v.value === selectedOption,
+                );
+                navigate(optionValue.to, {
                   preventScrollReset: true,
                 });
               }}

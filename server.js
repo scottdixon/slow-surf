@@ -11,6 +11,7 @@ import {
   createWithCache,
   CacheLong,
   CacheNone,
+  CacheCustom,
 } from '@shopify/hydrogen';
 import {
   createRequestHandler,

@@ -9,6 +9,7 @@ import ProductForm from '~/components/ProductForm';
 import {Reviews, ReviewsSummary} from '~/components/Reviews';
 import ProductRecommendations from '~/components/ProductRecommendations';
 import CMSContent from '~/components/CMSContent';
+import LoadingSkeleton from '~/components/LoadingSkeleton';
 
 export async function loader({params, request, context}) {
   const {handle} = params;

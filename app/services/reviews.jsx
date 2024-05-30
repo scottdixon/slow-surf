@@ -17,6 +17,45 @@ const reviews = {
       starRating: 3,
     },
   ],
+  'local-wax': [
+    {
+      id: 3,
+      name: 'Jane Smith',
+      date: 'May 21, 2023',
+      content:
+        "Super sticky, but it's a bit too soft for my liking. I prefer a harder wax.",
+      starRating: 4,
+    },
+  ],
+  'wax-comb': [
+    {
+      id: 4,
+      name: 'Jane Smith',
+      date: 'May 21, 2023',
+      content: "Wouldn't recommend as a hair comb.",
+      starRating: 4,
+    },
+  ],
+  'base-coat': [
+    {
+      id: 5,
+      name: 'Jane Smith',
+      date: 'May 21, 2023',
+      content:
+        "This base coat is great. It's easy to apply and protects the board well.",
+      starRating: 5,
+    },
+  ],
+  'repair-kit': [
+    {
+      id: 6,
+      name: 'Jane Smith',
+      date: 'May 21, 2023',
+      content:
+        "Strangest repair kit I've ever recieved. I'm not sure why it looks like a tiny surfboard.",
+      starRating: 2,
+    },
+  ],
 };
 
 export default function getProductReviews(handle) {

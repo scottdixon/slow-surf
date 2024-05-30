@@ -1,4 +1,5 @@
-import {Image, Money} from '@shopify/hydrogen';
+import {Link} from '@remix-run/react';
+import {Image} from '@shopify/hydrogen';
 
 export default function ProductRecommendations({data}) {
   return (
@@ -17,7 +18,11 @@ export default function ProductRecommendations({data}) {
 
       <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
         {data.map((product) => (
-          <div className="group relative" key={product.id}>
+          <Link
+            to={`/products/${product.handle}`}
+            className="group relative"
+            key={product.id}
+          >
             <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md lg:aspect-none group-hover:opacity-75 lg:h-80">
               <Image
                 data={product.featuredImage}
@@ -28,18 +33,13 @@ export default function ProductRecommendations({data}) {
             <div className="mt-4 flex justify-between">
               <div>
                 <h3 className="text-sm text-gray-700">
-                  <a href="#">
-                    <span
-                      aria-hidden="true"
-                      className="absolute inset-0"
-                    ></span>
-                    {product.title}
-                  </a>
+                  <span aria-hidden="true" className="absolute inset-0"></span>
+                  {product.title}
                 </h3>
               </div>
               <p className="text-sm font-medium text-gray-900"></p>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </section>

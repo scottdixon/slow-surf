@@ -190,12 +190,7 @@ const RECOMMENDED_PRODUCTS_QUERY = `#graphql
     productRecommendations(productId: $productId) {
       id
       title
-      priceRange {
-        minVariantPrice {
-          amount
-          currencyCode
-        }
-      }
+      handle
       featuredImage {
         altText
         url

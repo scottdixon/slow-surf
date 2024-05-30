@@ -120,7 +120,7 @@ export function ErrorBoundary() {
       </head>
       <body>
         <Layout {...rootData}>
-          <div className="route-error">
+          <div className="route-error text-center my-40">
             <h1>Oops</h1>
             <h2>{errorStatus}</h2>
             {errorMessage && (

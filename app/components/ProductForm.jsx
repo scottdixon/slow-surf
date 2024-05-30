@@ -27,7 +27,7 @@ export default function ProductForm({product, selectedVariant, variants}) {
                         ? 'cursor-pointer bg-white text-gray-900 shadow-sm'
                         : 'cursor-not-allowed bg-gray-50 text-gray-200',
                       isActive ? 'ring-indigo-500 ring-4' : '',
-                      'group relative flex items-center justify-center rounded-md border py-3 px-4 text-sm font-medium uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 sm:py-6',
+                      'group relative flex items-center justify-center rounded-md border py-3 px-4 text-sm font-medium uppercase hover:bg-gray-50 focus:outline-none hover:no-underline sm:flex-1 sm:py-6',
                     )}
                     key={option.name + value}
                     prefetch="intent"
@@ -44,8 +44,9 @@ export default function ProductForm({product, selectedVariant, variants}) {
         )}
       </VariantSelector>
       <button
-        type="submit"
-        className="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+        type="button"
+        disabled={!selectedVariant.availableForSale}
+        className="disabled:bg-indigo-100 mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
       >
         Add to bag
       </button>

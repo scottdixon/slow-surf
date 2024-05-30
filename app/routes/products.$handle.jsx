@@ -1,6 +1,6 @@
 import {Money, getSelectedProductOptions} from '@shopify/hydrogen';
 import {json} from '@shopify/remix-oxygen';
-import {useLoaderData} from '@remix-run/react';
+import {useLoaderData, useNavigation} from '@remix-run/react';
 import {Breadcrumbs} from '~/components/Breadcrumbs';
 import {redirectToFirstVariant} from '~/lib/utils';
 

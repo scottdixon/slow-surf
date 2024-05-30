@@ -1,9 +1,11 @@
-export const meta = () => {
-  return [{title: 'Hydrogen | Home'}];
-};
-
-export async function loader({context}) {
-  throw new Response('Not implemented yet :)', {
-    status: 501,
-  });
+export default function Index() {
+  return (
+    <p className="text-center my-24">
+      Proceed to the{' '}
+      <a href="/products/zero-gravity-glider" className="underline">
+        product page
+      </a>
+      .
+    </p>
+  );
 }
